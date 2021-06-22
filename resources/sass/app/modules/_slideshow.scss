@@ -37,12 +37,16 @@
   position: relative;
   height: 100%;
   grid-area: slide;
-  padding: 10vh 0 7vh;
+  padding: 9vh 0 2vh;
   max-width: 1140px;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (min-width: map-get($grid-breakpoints, md)) {
+    padding: 10vh 0 7vh;
+  }
 
   &__subtitle {
     margin: 0;
@@ -115,6 +119,7 @@
   transform: rotate(180deg);
   z-index: 100;
   margin: 0 0 0 -1.85rem;
+  white-space: nowrap;
 }
 
 .slide__img {
@@ -136,7 +141,6 @@
   position: relative;
   z-index: 100;
   margin: 0 0 0 -1.85rem;
-  white-space: nowrap;
 }
 
 .slide__number {
@@ -205,6 +209,15 @@
 
 .slide--visible .slide__img-wrap {
   pointer-events: auto;
+}
+
+@media (max-width: map-get($grid-breakpoints, md)) {
+  .slide.slide--visible {
+    opacity: 0;
+    &.slide--current {
+      opacity: 1;
+    }
+  }
 }
 
 /*
