@@ -1,199 +1,205 @@
 .slideshow {
-    position: relative;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vw;
+  min-height: 360px;
+
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-column-gap: 50px;
+  grid-template-areas: '... slide ...';
+
+  @media (min-width: map_get($grid-breakpoints, lg)) {
     height: 100vh;
-    width: 100%;
     min-height: 560px;
+  }
 
-    display: grid;
-    grid-template-rows: 100%;
-    grid-template-columns: 1fr 4fr 1fr;
-    grid-column-gap: 50px;
-    grid-template-areas: '... slide ...';
-
-    &__deco {
-        grid-area: slide;
-        background: $color-deco;
-        width: 100%;
-        height: 80%;
-        align-self: center;
-        position: relative;
-        margin: -40px 0 0 0;
-        right: -20px;
-    }
+  &__deco {
+    grid-area: slide;
+    background: $color-deco;
+    width: 100%;
+    height: 80%;
+    align-self: center;
+    position: relative;
+    margin: -40px 0 0 0;
+    right: -20px;
+  }
 }
 
 .slide {
-    width: 67.5vw;
-    pointer-events: none;
-    cursor: pointer;
-    position: relative;
-    height: 100%;
-    grid-area: slide;
-    padding: 10vh 0 7vh;
-    max-width: 1140px;
+  width: 67.5vw;
+  pointer-events: none;
+  cursor: pointer;
+  position: relative;
+  height: 100%;
+  grid-area: slide;
+  padding: 10vh 0 7vh;
+  max-width: 1140px;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-    &__subtitle {
-        margin: 0;
-        min-height: 50px;
-        font-weight: normal;
-        font-family: $font-family-base;
+  &__subtitle {
+    margin: 0;
+    min-height: 50px;
+    font-weight: normal;
+    font-family: $font-family-base;
+  }
+
+  &__img {
+    filter: grayscale(0.65);
+    transition: filter 1s;
+  }
+
+  &--current {
+    pointer-events: auto;
+
+    .slide__img {
+      filter: none;
     }
 
-    &__img {
-        filter: grayscale(0.65);
-        transition: filter 1s;
+    .slide__link {
+      pointer-events: auto;
+      z-index: 150;
     }
-
-    &--current {
-        pointer-events: auto;
-
-        .slide__img {
-            filter: none;
-        }
-
-        .slide__link {
-            pointer-events: auto;
-            z-index: 150;
-        }
-    }
+  }
 }
 
 .slide__link {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 10vh;
-    bottom: 7vh;
-    pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 10vh;
+  bottom: 7vh;
+  pointer-events: none;
 }
 
 .slideshow--previewopen .slide {
-    cursor: default;
+  cursor: default;
 }
 
 .slide__img-wrap {
-    width: 100%;
-    overflow: hidden;
-    z-index: 100;
-    height: 80%;
-    top: 10%;
-    position: absolute;
+  width: 100%;
+  overflow: hidden;
+  z-index: 100;
+  height: 80%;
+  top: 10%;
+  position: absolute;
 }
 
 .slide__title,
 .slide__subtitle,
 .slide__side {
-    display: block;
+  display: block;
 }
 
 .slide__title {
-    font-size: 3.25rem;
-    margin: 0 0 0.25rem;
+  font-size: 3.25rem;
+  margin: 0 0 0.25rem;
 }
 
 .slide__side {
-    color: $color-side;
-    position: relative;
-    -webkit-writing-mode: vertical-rl;
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    z-index: 100;
-    margin: 0 0 0 -1.85rem;
+  color: $color-side;
+  position: relative;
+  -webkit-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  z-index: 100;
+  margin: 0 0 0 -1.85rem;
 }
 
 .slide__img {
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    background-size: cover;
-    background-position: 50% 50%;
-    position: absolute;
-    pointer-events: none;
-    transform: scale3d(1.01, 1.01, 1);
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  position: absolute;
+  pointer-events: none;
+  transform: scale3d(1.01, 1.01, 1);
 }
 
 .slide__title-wrap {
-    justify-self: flex-end;
-    width: 100%;
-    max-width: 100%;
-    position: relative;
-    z-index: 100;
-    margin: 0 0 0 -1.85rem;
+  justify-self: flex-end;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  z-index: 100;
+  margin: 0 0 0 -1.85rem;
 }
 
 .slide__number {
-    display: block;
-    font-size: 2rem;
-    font-weight: $font-weight-headings;
+  display: block;
+  font-size: 2rem;
+  font-weight: $font-weight-headings;
 
-    &::before {
-        content: "\2014";
-        display: inline-block;
-        margin: 0 1rem 0 0;
-    }
+  &::before {
+    content: "\2014";
+    display: inline-block;
+    margin: 0 1rem 0 0;
+  }
 }
 
 .icon {
-    display: block;
-    width: 1.5em;
-    height: 1.5em;
-    margin: 0 auto;
-    fill: currentColor;
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  margin: 0 auto;
+  fill: currentColor;
 }
 
 .slideshow-nav {
-    position: absolute;
-    background: none;
-    width: 3rem;
-    height: 3rem;
-    z-index: 100;
-    border: 0;
-    padding: 0;
-    margin: 0;
-    pointer-events: none;
-    transition: transform 0.8s, opacity 0.8s;
-    transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+  position: absolute;
+  background: none;
+  width: 3rem;
+  height: 3rem;
+  z-index: 100;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  pointer-events: none;
+  transition: transform 0.8s, opacity 0.8s;
+  transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
 
-    &--next {
-        bottom: 1rem;
-        right: 1rem;
-    }
-    &--prev {
-        top: 1rem;
-        left: 1rem;
-    }
+  &--next {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  &--prev {
+    top: 1rem;
+    left: 1rem;
+  }
 }
 
 .icon--navarrow-next {
-    transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .icon--navarrow-prev {
-    transform: rotate(-135deg);
+  transform: rotate(-135deg);
 }
 
 .js .slide__img-wrap,
 .js .slide__title-wrap,
 .js .slide__side {
-    opacity: 0;
-    pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .js .slide--current .slide__img-wrap {
-    opacity: 1;
-    pointer-events: auto;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .slide--visible .slide__img-wrap {
-    pointer-events: auto;
+  pointer-events: auto;
 }
 
 /*
