@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100vw;
+  height: 110vw;
   min-height: 360px;
 
   display: grid;
@@ -13,7 +13,7 @@
   grid-column-gap: 50px;
   grid-template-areas: '... slide ...';
 
-  @media (min-width: map_get($grid-breakpoints, lg)) {
+  @media (min-width: map-get($grid-breakpoints, lg)) {
     height: 100vh;
     min-height: 560px;
   }
@@ -88,8 +88,12 @@
   overflow: hidden;
   z-index: 100;
   height: 80%;
-  top: 10%;
+  top: 0;
   position: absolute;
+
+  @media (min-width: map-get($grid-breakpoints, lg)) {
+    top: 10%;
+  }
 }
 
 .slide__title,
@@ -132,6 +136,7 @@
   position: relative;
   z-index: 100;
   margin: 0 0 0 -1.85rem;
+  white-space: nowrap;
 }
 
 .slide__number {
