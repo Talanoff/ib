@@ -41,7 +41,7 @@
     <meta name="application-name" content="Evolution Technology">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="{{ asset('images/favicons/browserconfig.xml') }}">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#0c0c0c">
 
     <script>
         window.fbAsyncInit = function () {

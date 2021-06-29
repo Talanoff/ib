@@ -1,43 +1,44 @@
 .work-article {
-    @extend .slide;
-    width: auto;
-    pointer-events: auto;
-    margin: 0 0 2.5rem 2.5rem;
+  @extend .slide;
+  width: auto;
+  pointer-events: auto;
+  margin: 0 0 2.5rem 2.5rem;
+  padding: 9vw 0;
 
-    &__img {
-        @extend .slide__img;
-        filter: none;
-    }
+  &__img {
+    @extend .slide__img;
+    filter: none;
+  }
 
-    &__img-wrap {
-        @extend .slide__img-wrap;
-    }
+  &__img-wrap {
+    @extend .slide__img-wrap;
+  }
 
-    &__side {
-        @extend .slide__side;
-    }
+  &__side {
+    @extend .slide__side;
+  }
 
-    &__title-wrap {
-        @extend .slide__title-wrap;
-        margin-bottom: -3.75rem;
-    }
+  &__title-wrap {
+    @extend .slide__title-wrap;
+    margin-bottom: -3.75rem;
+  }
 
-    &__title {
-        @extend .slide__title;
-    }
+  &__title {
+    @extend .slide__title;
+  }
 
-    &__subtitle {
-        @extend .slide__subtitle;
-    }
+  &__subtitle {
+    @extend .slide__subtitle;
+  }
 
-    &__number {
-        @extend .slide__number;
-    }
+  &__number {
+    @extend .slide__number;
+  }
 }
 
 .js .work-article__img-wrap,
 .js .work-article__title-wrap,
 .js .work-article__side {
-    opacity: 1;
-    pointer-events: auto;
+  opacity: 1;
+  pointer-events: auto;
 }
