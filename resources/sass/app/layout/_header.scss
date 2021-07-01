@@ -12,13 +12,12 @@
   .logo {
     position: absolute;
     top: 10px;
-    height: 80px;
+    height: 78px;
     left: 50%;
     z-index: 1000;
     transform: translateX(-50%);
 
     svg {
-      fill: #fff;
       display: block;
       margin: 0 auto;
     }
